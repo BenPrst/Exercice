@@ -1,0 +1,62 @@
+@import url("./assets/fonts/Poppins-Bold.ttf");
+@import url("./assets/fonts/Poppins-ExtraBold.ttf");
+@import url("./assets/fonts/Poppins-ExtraBoldItalic.ttf");
+@import url("./assets/fonts/Poppins-Italic.ttf");
+@import url("./assets/fonts/Poppins-Regular.ttf");
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+.calculator {
+  border: solid 2px black;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+  border-radius: 10px 10px 200px 10px;
+}
+
+.top-calculator {
+  display: flex;
+}
+
+#y,
+#m,
+#d {
+  color: rgb(128, 0, 255);
+}
+
+.bot-calculator {
+  font-size: 80px;
+  font-family: "Poppins-Italic", sans-serif;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-family: "Poppins-Bold", sans-serif;
+  color: grey;
+}
+input {
+  padding: 10px;
+  font-size: 35px;
+  width: 100px;
+  border-width: 1px;
+  background-color: #ffffff;
+  color: #000000;
+  border: solid 1px black;
+  border-radius: 13px;
+}
+
+input:focus {
+  border-color: rgb(128, 0, 255);
+}

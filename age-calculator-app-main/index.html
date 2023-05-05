@@ -11,6 +11,7 @@
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
+    <link rel="stylesheet" href="style.css" />
 
     <title>Frontend Mentor | Age calculator app</title>
 
@@ -26,13 +27,31 @@
     </style>
   </head>
   <body>
-    Day
-    <input type="number" name="day" id="day" />
-    Month
-    <input type="number" name="month" id="month" />
-    Year
-    <input type="number" name="year" id="year" />
-    <button type="button" id="submit">Enter</button>
+    <div class="calculator">
+      <div class="top-calculator">
+        <div class="input">
+          <p>Day</p>
+          <input type="number" name="day" id="day" />
+        </div>
+        <div class="input">
+          <p>Month</p>
+          <input type="number" name="month" id="month" />
+        </div>
+        <div class="input">
+          <p>Year</p>
+          <input type="number" name="year" id="year" />
+        </div>
+        <button type="button" id="submit">Enter</button>
+      </div>
+
+      <div class="bot-calculator">
+        <p><span id="y">0</span>Year</p>
+
+        <p><span id="m">0</span>Month</p>
+
+        <p><span id="d">0</span>Day</p>
+      </div>
+    </div>
     <div class="attribution">
       Challenge by
       <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
