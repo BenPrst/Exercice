@@ -1,8 +1,23 @@
-@import url("./assets/fonts/Poppins-Bold.ttf");
-@import url("./assets/fonts/Poppins-ExtraBold.ttf");
-@import url("./assets/fonts/Poppins-ExtraBoldItalic.ttf");
-@import url("./assets/fonts/Poppins-Italic.ttf");
-@import url("./assets/fonts/Poppins-Regular.ttf");
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url("./assets/fonts/Poppins-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-ExtraBold";
+  src: url("./assets/fonts/Poppins-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-ExtraBoldItalic";
+  src: url("./assets/fonts/Poppins-ExtraBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Italic";
+  src: url("./assets/fonts/Poppins-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Poppins-Regular";
+  src: url("./assets/fonts/Poppins-Regular.ttf") format("truetype");
+}
 
 * {
   padding: 0;
@@ -15,17 +30,20 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background-color: rgb(215, 224, 231);
 }
 .calculator {
-  border: solid 2px black;
   display: flex;
   flex-direction: column;
-  padding: 50px;
-  border-radius: 10px 10px 200px 10px;
+  padding: 30px;
+  border-radius: 10px 10px 150px 10px;
+  width: 400px;
+  background-color: white;
 }
 
 .top-calculator {
   display: flex;
+  justify-content: flex-start;
 }
 
 #y,
@@ -34,29 +52,59 @@ body {
   color: rgb(128, 0, 255);
 }
 
+.mid-calculator {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.mid-calculator::after {
+  content: "";
+  width: 100%;
+  height: 1px;
+  top: 50%;
+  background-color: rgb(232, 232, 232);
+  position: absolute;
+}
+
+.button {
+  background-color: #000000;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  padding: 15px;
+  z-index: 1;
+  cursor: pointer;
+}
+
 .bot-calculator {
-  font-size: 80px;
-  font-family: "Poppins-Italic", sans-serif;
+  font-size: 70px;
+  font-family: "Poppins-ExtraBoldItalic", sans-serif;
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
 }
 
 .input {
-  display: flex;
-  flex-direction: column;
   text-transform: uppercase;
   font-family: "Poppins-Bold", sans-serif;
   color: grey;
+  margin: 0px 5px;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: bolder;
 }
 input {
-  padding: 10px;
-  font-size: 35px;
-  width: 100px;
-  border-width: 1px;
+  padding: 5px;
+  width: 70px;
   background-color: #ffffff;
-  color: #000000;
-  border: solid 1px black;
-  border-radius: 13px;
+  border: solid 1px rgb(212, 212, 212);
+  border-radius: 5px;
+  font-family: "Poppins-ExtraBold";
+  font-size: 20px;
 }
 
 input:focus {
+  outline: none;
   border-color: rgb(128, 0, 255);
 }

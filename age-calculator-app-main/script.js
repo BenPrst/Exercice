@@ -1,4 +1,4 @@
-let button = document.getElementById("submit");
+let button = document.querySelector(".button");
 
 //Current Date
 
@@ -11,7 +11,7 @@ let year = date.getFullYear();
 
 button.addEventListener("click", () => {
   let dayOfBirth = document.getElementById("day").value;
-  let monthOfBirth = document.getElementById("month").value;
+  let monthOfBirth = document.getElementById("month").value - 1;
   let yearOfBirth = document.getElementById("year").value;
 
   //Verify if the fields are completed
