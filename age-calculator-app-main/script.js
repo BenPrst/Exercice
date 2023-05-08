@@ -4,17 +4,21 @@ let button = document.querySelector(".button");
 
 let date = new Date();
 let day = date.getDate();
-let month = date.getMonth();
+let month = date.getMonth() + 1;
 let year = date.getFullYear();
 
 //button action
 
 button.addEventListener("click", () => {
   let dayOfBirth = document.getElementById("day").value;
-  let monthOfBirth = document.getElementById("month").value - 1;
+  let monthOfBirth = document.getElementById("month").value;
   let yearOfBirth = document.getElementById("year").value;
 
   //Verify if the fields are completed
+
+  function daysInMonth(month, year) {
+    return new Date(year, month, 0).getDate();
+  }
 
   if (
     dayOfBirth.length === 0 ||
@@ -22,7 +26,7 @@ button.addEventListener("click", () => {
     yearOfBirth.length === 0
   ) {
     return console.log("empty");
-  } else if (dayOfBirth < 1 || dayOfBirth > 31) {
+  } else if (dayOfBirth < 1 || dayOfBirth > daysInMonth(month, year)) {
     return console.log("not a valid day");
   } else if (monthOfBirth < 1 || monthOfBirth > 12) {
     return console.log("not a valid month");
@@ -32,17 +36,21 @@ button.addEventListener("click", () => {
     let d;
     let m;
     let y = year - yearOfBirth;
-    if (monthOfBirth > month) {
+    if (month >= monthOfBirth) {
+      m = month - monthOfBirth;
+    } else {
       m = 12 + month - monthOfBirth;
       y--;
-    } else {
-      m = month - monthOfBirth;
     }
-    if (dayOfBirth > day) {
-      d = 30 + day - dayOfBirth;
-      m--;
-    } else {
+    if (day >= dayOfBirth) {
       d = day - dayOfBirth;
+    } else {
+      d = daysInMonth(month, year) + day - dayOfBirth;
+      m--;
+      if (m < 0) {
+        m = 11;
+        y--;
+      }
     }
     document.getElementById("y").textContent = y;
     document.getElementById("m").textContent = m;
