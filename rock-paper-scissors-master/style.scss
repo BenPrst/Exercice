@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: hsl(228, 49%, 29%);
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Barlow", sans-serif;
+  color: white;
+  position: relative;
+}
+
+.scoreboard {
+  width: 65%;
+  height: 100px;
+  border: solid 2px rgba(255, 255, 255, 0.311);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 15px;
+  padding-right: 10px;
+  .logo {
+    width: 70%;
+    margin-top: 8px;
+  }
+  .score {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    height: 60px;
+    width: 80px;
+    border-radius: 5px;
+    padding: 10px;
+    .score-title {
+      color: rgb(0, 0, 199);
+      font-size: 10px;
+      letter-spacing: 2px;
+      font-weight: 800;
+    }
+    .score-number {
+      color: rgb(90, 90, 90);
+      font-size: 40px;
+    }
+  }
+}
+
+.rock-paper-scissors {
+  display: flex;
+  //   display: none;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.top-rps {
+  display: flex;
+  justify-content: space-between;
+  width: 450px;
+}
+
+.icon {
+  margin: 30px;
+  width: 40px;
+  height: 40px;
+  padding: 30px;
+  background-color: white;
+  border-radius: 50%;
+}
+.paper {
+  border: solid 20px rgb(0, 110, 255);
+  background-image: url("../images/icon-paper.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.scissors {
+  border: solid 20px rgb(255, 221, 0);
+  background-image: url("../images/icon-scissors.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+.rock {
+  border: solid 20px rgb(255, 47, 0);
+  background-image: url("../images/icon-rock.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.rock::after {
+  content: "";
+  width: 300px;
+  height: 15px;
+  rotate: 55deg;
+  z-index: -1;
+  left: 2px;
+  top: 200px;
+  background-color: rgba(20, 11, 87, 0.521);
+  position: absolute;
+  display: block;
+}
+
+.paper::after {
+  content: "";
+  width: 300px;
+  height: 15px;
+  rotate: -55deg;
+  z-index: -1;
+  right: 2px;
+  top: 200px;
+  background-color: rgba(20, 11, 87, 0.521);
+  position: absolute;
+  display: block;
+}
+
+.scissors::after {
+  content: "";
+  width: 300px;
+  height: 15px;
+  z-index: -1;
+  top: 85px;
+  left: 60px;
+  background-color: rgba(20, 11, 87, 0.521);
+  position: absolute;
+  display: block;
+}
+
+.result-div {
+  display: none;
+  width: 65%;
+  justify-content: space-between;
+  h2 {
+    font-size: 100%;
+  }
+}
+
+.vs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pick {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: rgba(1, 1, 94, 0.29);
+}
+
+.rockPick {
+  border: 25px solid rgb(255, 47, 0);
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  background-image: url(../images/icon-rock.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.paperPick {
+  border: 25px solid rgb(0, 110, 255);
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  background-image: url(../images/icon-paper.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.scissorsPick {
+  border: 25px solid rgb(255, 221, 0);
+  width: 100px;
+  height: 100px;
+  background-color: white;
+  background-image: url(../images/icon-scissors.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.attribution {
+  bottom: 0;
+  position: absolute;
+}
