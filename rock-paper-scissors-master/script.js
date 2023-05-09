@@ -5,6 +5,7 @@ let scoreBoard = document.getElementById("score");
 let score = 0;
 let resultMessage = document.getElementById("resultMessage");
 let playAgain = document.getElementById("playAgain");
+let resultMessageDiv = document.getElementById("result-message-div");
 
 let computerPick;
 
@@ -20,15 +21,23 @@ function randomPick() {
 }
 
 function win() {
-  score = score + 1;
+  setTimeout(() => {
+    score = score + 1;
+    scoreBoard.textContent = score;
+    displayPlayerPick.add("ripple");
+  }, "4000");
   scoreBoard.textContent = score;
   resultMessage.textContent = "YOU WIN";
 }
 
-function loose() {
-  score = score - 1;
-  scoreBoard.textContent = score;
-  resultMessage.textContent = "YOU LOOSE";
+function lose() {
+  setTimeout(() => {
+    score = score - 1;
+    scoreBoard.textContent = score;
+    displayComputerPick.add("ripple");
+    document.getElementById("computer-pick").style.opacity = "100%";
+  }, "4000");
+  resultMessage.textContent = "YOU LOSE";
 }
 
 function tie() {
@@ -36,8 +45,13 @@ function tie() {
 }
 
 function reset() {
-  displayPlayerPick.remove("rockPick", "scissorsPick", "paperPick");
-  displayComputerPick.remove("rockPick", "scissorsPick", "paperPick");
+  displayPlayerPick.remove("rockPick", "scissorsPick", "paperPick", "ripple");
+  displayComputerPick.remove("rockPick", "scissorsPick", "paperPick", "ripple");
+  document.getElementById("computer-pick").style.opacity = "0%";
+}
+
+function toggleDisplay() {
+  resultMessageDiv.style.display = "flex";
 }
 
 //0=rock
@@ -49,6 +63,9 @@ rock.addEventListener("click", () => {
   playerPicker.style.display = "none";
   resultDiv.style.display = "flex";
   displayPlayerPick.add("rockPick");
+  setTimeout(() => {
+    toggleDisplay();
+  }, "4000");
   randomPick();
   if (computerPick === 0) {
     displayComputerPick.add("rockPick");
@@ -56,8 +73,8 @@ rock.addEventListener("click", () => {
     console.log("tie");
   } else if (computerPick === 1) {
     displayComputerPick.add("paperPick");
-    loose();
-    console.log("U loose");
+    lose();
+    console.log("U LOSE");
   } else if (computerPick === 2) {
     displayComputerPick.add("scissorsPick");
     win();
@@ -70,6 +87,9 @@ paper.addEventListener("click", () => {
   playerPicker.style.display = "none";
   resultDiv.style.display = "flex";
   displayPlayerPick.add("paperPick");
+  setTimeout(() => {
+    toggleDisplay();
+  }, "4000");
   randomPick();
   if (computerPick === 0) {
     displayComputerPick.add("rockPick");
@@ -81,8 +101,8 @@ paper.addEventListener("click", () => {
     console.log("tie");
   } else if (computerPick === 2) {
     displayComputerPick.add("scissorsPick");
-    loose();
-    console.log("U loose");
+    lose();
+    console.log("U LOSE");
   }
 });
 
@@ -91,11 +111,14 @@ scissors.addEventListener("click", () => {
   playerPicker.style.display = "none";
   resultDiv.style.display = "flex";
   displayPlayerPick.add("scissorsPick");
+  setTimeout(() => {
+    toggleDisplay();
+  }, "4000");
   randomPick();
   if (computerPick === 0) {
     displayComputerPick.add("rockPick");
-    loose();
-    console.log("U loose");
+    lose();
+    console.log("U LOSE");
   } else if (computerPick === 1) {
     displayComputerPick.add("paperPick");
     win();
@@ -110,4 +133,5 @@ scissors.addEventListener("click", () => {
 playAgain.addEventListener("click", () => {
   playerPicker.style.display = "flex";
   resultDiv.style.display = "none";
+  resultMessageDiv.style.display = "none";
 });

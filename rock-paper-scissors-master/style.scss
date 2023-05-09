@@ -3,7 +3,11 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: hsl(228, 49%, 29%);
+  background: linear-gradient(
+    0deg,
+    rgba(11, 11, 42, 1) 35%,
+    rgba(65, 69, 145, 1) 100%
+  );
   min-height: 100vh;
   width: 100vw;
   display: flex;
@@ -12,7 +16,6 @@ body {
   flex-direction: column;
   font-family: "Barlow", sans-serif;
   color: white;
-  position: relative;
 }
 
 .scoreboard {
@@ -58,6 +61,7 @@ body {
 
 .rock-paper-scissors {
   display: flex;
+  // display: none;
   flex-direction: column;
   align-items: center;
   position: relative;
@@ -107,7 +111,7 @@ body {
   z-index: -1;
   left: 2px;
   top: 200px;
-  background-color: rgba(20, 11, 87, 0.521);
+  background-color: rgba(5, 0, 41, 0.816);
   position: absolute;
   display: block;
 }
@@ -120,7 +124,7 @@ body {
   z-index: -1;
   right: 2px;
   top: 200px;
-  background-color: rgba(20, 11, 87, 0.521);
+  background-color: rgba(5, 0, 41, 0.816);
   position: absolute;
   display: block;
 }
@@ -132,20 +136,9 @@ body {
   z-index: -1;
   top: 85px;
   left: 60px;
-  background-color: rgba(20, 11, 87, 0.521);
+  background-color: rgba(5, 0, 41, 0.816);
   position: absolute;
   display: block;
-}
-
-.result-div {
-  display: none;
-  width: 65%;
-  justify-content: space-between;
-  align-items: center;
-  h2 {
-    font-size: 100%;
-    text-align: center;
-  }
 }
 
 .play-again {
@@ -159,6 +152,7 @@ body {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 1.5px;
+  cursor: pointer;
 }
 
 .vs {
@@ -177,29 +171,32 @@ body {
 
 .rockPick {
   border: 25px solid rgb(255, 47, 0);
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   background-color: white;
   background-image: url(../images/icon-rock.svg);
   background-position: center;
+  background-size: 80px;
   background-repeat: no-repeat;
 }
 .paperPick {
   border: 25px solid rgb(0, 110, 255);
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   background-color: white;
   background-image: url(../images/icon-paper.svg);
   background-position: center;
+  background-size: 80px;
   background-repeat: no-repeat;
 }
 .scissorsPick {
   border: 25px solid rgb(255, 221, 0);
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   background-color: white;
   background-image: url(../images/icon-scissors.svg);
   background-position: center;
+  background-size: 80px;
   background-repeat: no-repeat;
 }
 
@@ -208,16 +205,77 @@ body {
   position: absolute;
 }
 
+.result-div {
+  // display: flex;
+  display: none;
+  width: 40%;
+  justify-content: space-between;
+  align-items: center;
+  animation: ouverture 2s forwards;
+  animation-delay: 2.5s;
+  h2 {
+    font-size: 100%;
+    text-align: center;
+  }
+}
+
 .result-message-div {
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: center;
   line-height: 50px;
+  margin: 0px 30px;
+  animation: opacity 1s forwards;
 }
+
 .result-message {
   font-size: 30px;
   font-weight: 900;
   font-stretch: condensed;
   letter-spacing: 2px;
   text-align: center;
+}
+
+.computer-pick {
+  opacity: 0%;
+  animation: opacity 1s forwards;
+  animation-delay: 1s;
+}
+
+.ripple {
+  animation: ripple 1.5s infinite;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0%;
+  }
+
+  100% {
+    opacity: 100%;
+  }
+}
+
+@keyframes ouverture {
+  0% {
+    width: 40%;
+  }
+  100% {
+    width: 65%;
+  }
+}
+
+//RIPPLE EFFECT
+@keyframes ripple {
+  0% {
+    box-shadow: 0 0 0 0 #fff4, 0 0 0 0 #fff4;
+  }
+
+  80% {
+    box-shadow: 0 0 0 20px #fff0, 0 0 0 40px #fff0;
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 #fff0, 0 0 0 0 #fff0;
+  }
 }
